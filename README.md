@@ -6,6 +6,8 @@ Parse docker image urls
 npm install docker-parse-image
 ```
 
+[![build status](http://img.shields.io/travis/mafintosh/docker-parse-image.svg?style=flat)](http://travis-ci.org/mafintosh/docker-parse-image)
+
 ## Usage
 
 ``` js
