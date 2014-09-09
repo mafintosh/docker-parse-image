@@ -19,5 +19,12 @@
   "bugs": {
     "url": "https://github.com/mafintosh/docker-parse-image/issues"
   },
-  "homepage": "https://github.com/mafintosh/docker-parse-image"
+  "homepage": "https://github.com/mafintosh/docker-parse-image",
+  "keywords": [
+    "docker",
+    "parse",
+    "image",
+    "name",
+    "url"
+  ]
 }
