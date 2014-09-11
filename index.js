@@ -12,13 +12,13 @@ module.exports = function(image) {
 
   var result = {
     registry: registry || null,
-    namespace: namespace || 'library',
+    namespace: namespace || null,
     repository: match[3],
-    tag: match[4] || 'latest'
+    tag: match[4] || null
   }
 
-  result.name = (registry ? registry+'/' : '') + result.namespace + '/' + result.repository
-  result.fullname = result.name+':'+result.tag
+  result.name = (registry ? registry+'/' : '') + (namespace ? namespace+'/' : '') + result.repository
+  result.fullname = result.name+(result.tag ? ':'+result.tag : '')
 
   return result
 }
