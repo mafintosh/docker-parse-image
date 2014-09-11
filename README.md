@@ -14,19 +14,19 @@ npm install docker-parse-image
 var parse = require('docker-parse-image')
 
 console.log(parse('mafintosh/test'))
-// --> {namespace:'mafintosh', repository:'test', tag:'latest'}
+// --> {namespace:'mafintosh', repository:'test', tag:null}
 
 console.log(parse('ubuntu'))
-// --> {namespace:'library', repository:'ubuntu', tag:'latest'}
+// --> {namespace:null, repository:'ubuntu', tag:null}
 
 console.log(parse('mafintosh/test:14.04'))
-// --> {namespace:'library', repository:'ubuntu', tag:'14.04'}
+// --> {namespace:'mafintosh', repository:'test', tag:'14.04'}
 
 console.log(parse('ubuntu:14.04'))
-// --> {namespace:'library', repository:'ubuntu', tag:'14.04'}
+// --> {namespace:null, repository:'ubuntu', tag:'14.04'}
 
 console.log(parse('registry.com/ubuntu:14.04'))
-// --> {registry:'registry.com', namespace:'library', tag:'14.04'}
+// --> {registry:'registry.com', namespace:null, tag:'14.04'}
 ```
 
 ## License
