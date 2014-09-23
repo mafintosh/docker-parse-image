@@ -8,7 +8,7 @@ tape('basic', function(t) {
     repository:'test',
     tag:null,
     name:'mafintosh/test',
-    fullname:'mafintosh/test'
+    fullname:'mafintosh/test:latest'
   })
 
   t.same(parse('ubuntu'), {
@@ -17,7 +17,7 @@ tape('basic', function(t) {
     repository:'ubuntu',
     tag:null,
     name:'ubuntu',
-    fullname:'ubuntu'
+    fullname:'library/ubuntu:latest'
   })
 
   t.same(parse('mafintosh/test:14.04'), {
@@ -25,7 +25,7 @@ tape('basic', function(t) {
     namespace:'mafintosh',
     repository:'test',
     tag:'14.04',
-    name:'mafintosh/test',
+    name:'mafintosh/test:14.04',
     fullname:'mafintosh/test:14.04'
   })
 
@@ -34,8 +34,8 @@ tape('basic', function(t) {
     namespace:null,
     repository:'ubuntu',
     tag:'14.04',
-    name:'ubuntu',
-    fullname:'ubuntu:14.04'
+    name:'ubuntu:14.04',
+    fullname:'library/ubuntu:14.04'
   })
 
   t.same(parse('registry.com/ubuntu:14.04'), {
@@ -43,8 +43,8 @@ tape('basic', function(t) {
     namespace:null,
     repository:'ubuntu',
     tag:'14.04',
-    name:'registry.com/ubuntu',
-    fullname:'registry.com/ubuntu:14.04'
+    name:'registry.com/ubuntu:14.04',
+    fullname:'registry.com/library/ubuntu:14.04'
   })
 
   t.same(parse('registry.com/ubuntu:14.04'), {
@@ -52,8 +52,8 @@ tape('basic', function(t) {
     namespace:null,
     repository:'ubuntu',
     tag:'14.04',
-    name:'registry.com/ubuntu',
-    fullname:'registry.com/ubuntu:14.04'
+    name:'registry.com/ubuntu:14.04',
+    fullname:'registry.com/library/ubuntu:14.04'
   })
 
   t.end()
@@ -65,7 +65,7 @@ tape('basic with @', function(t) {
     namespace:'mafintosh',
     repository:'test',
     tag:'14.04',
-    name:'mafintosh/test',
+    name:'mafintosh/test:14.04',
     fullname:'mafintosh/test:14.04'
   })
 
@@ -74,8 +74,8 @@ tape('basic with @', function(t) {
     namespace:null,
     repository:'ubuntu',
     tag:'14.04',
-    name:'ubuntu',
-    fullname:'ubuntu:14.04'
+    name:'ubuntu:14.04',
+    fullname:'library/ubuntu:14.04'
   })
 
   t.same(parse('registry.com/ubuntu@14.04'), {
@@ -83,8 +83,8 @@ tape('basic with @', function(t) {
     namespace:null,
     repository:'ubuntu',
     tag:'14.04',
-    name:'registry.com/ubuntu',
-    fullname:'registry.com/ubuntu:14.04'
+    name:'registry.com/ubuntu:14.04',
+    fullname:'registry.com/library/ubuntu:14.04'
   })
 
   t.same(parse('registry.com/ubuntu@14.04'), {
@@ -92,8 +92,8 @@ tape('basic with @', function(t) {
     namespace:null,
     repository:'ubuntu',
     tag:'14.04',
-    name:'registry.com/ubuntu',
-    fullname:'registry.com/ubuntu:14.04'
+    name:'registry.com/ubuntu:14.04',
+    fullname:'registry.com/library/ubuntu:14.04'
   })
 
   t.end()

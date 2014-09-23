@@ -4,6 +4,8 @@ module.exports = function(image) {
 
   var registry = match[1]
   var namespace = match[2]
+  var repository = match[3]
+  var tag = match[4]
 
   if (!namespace && registry && !/[:.]/.test(registry)) {
     namespace = registry
@@ -13,12 +15,16 @@ module.exports = function(image) {
   var result = {
     registry: registry || null,
     namespace: namespace || null,
-    repository: match[3],
-    tag: match[4] || null
+    repository: repository,
+    tag: tag || null
   }
 
-  result.name = (registry ? registry+'/' : '') + (namespace ? namespace+'/' : '') + result.repository
-  result.fullname = result.name+(result.tag ? ':'+result.tag : '')
+  registry = registry ? registry+'/' : ''
+  namespace = namespace ? namespace+'/' : ''
+  tag = result.tag ? ':'+result.tag : ''
+
+  result.name = registry + namespace + repository + tag
+  result.fullname = registry + (namespace || 'library/') + repository + (tag || ':latest')
 
   return result
 }
