@@ -20,8 +20,8 @@ module.exports = function(image) {
   }
 
   registry = registry ? registry+'/' : ''
-  namespace = namespace ? namespace+'/' : ''
-  tag = result.tag ? ':'+result.tag : ''
+  namespace = namespace && namespace !== 'library' ? namespace+'/' : ''
+  tag = tag && tag !== 'latest' ? ':'+tag : ''
 
   result.name = registry + namespace + repository + tag
   result.fullname = registry + (namespace || 'library/') + repository + (tag || ':latest')
