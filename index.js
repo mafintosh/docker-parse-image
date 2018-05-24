@@ -1,5 +1,5 @@
 module.exports = function(image) {
-  var match = image.match(/^(?:([^\/]+)\/)?(?:([^\/]+)\/)?([^@:\/]+)(?:[@:](.+))?$/)
+  var match = image.match(/^(?:([^\/]+)\/)?(?:([^\/]+)\/)?([^@:]+)(?:[@:](.+))?$/)
   if (!match) return null
 
   var registry = match[1]
