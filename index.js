@@ -1,11 +1,15 @@
+const regexp = /^(?:(?<domain>(?<hostname>(?:[a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])(?:(?:\.(?:[a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]))+)?)(?::(?<port>[0-9]+))?)\/)?(?:(?<org>[a-z0-9]+(?:(?:(?:[._]|__|[-]*)[a-z0-9]+)+)?)\/)?(?<name>(?:[a-z0-9]+(?:(?:(?:[._]|__|[-]*)[a-z0-9]+)+)?\/?)+)(?::(?<tag>[\w][\w.-]{0,127}))?(?:@(?<digest>[A-Za-z][A-Za-z0-9]*(?:[-_+.][A-Za-z][A-Za-z0-9]*)*[:][a-zA-Z0-9]{32,}))?/
+
 module.exports = function(image) {
-  var match = image.match(/^(?:([^\/]+)\/)?(?:([^\/]+)\/)?([^@:\/]+)(?:[@:](.+))?$/)
+  var match = image.match(regexp)
   if (!match) return null
 
-  var registry = match[1]
-  var namespace = match[2]
-  var repository = match[3]
-  var tag = match[4]
+  var groups = match.groups
+
+  var registry = groups.domain
+  var namespace = groups.org
+  var repository = groups.name
+  var tag = groups.tag
 
   if (!namespace && registry && !/[:.]/.test(registry)) {
     namespace = registry
